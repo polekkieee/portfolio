@@ -1,3 +1,15 @@
-@tailwind base; 
-@tailwind components; 
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* This maps the CSS variables from Next.js to Tailwind utility classes */
+  --font-liter: var(--font-liter), serif;
+  --font-unbounded: var(--font-unbounded), sans-serif;
+  --font-geist: var(--font-geist), sans-serif;
+}
+
+/* You can keep your base styles here if you have any */
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
