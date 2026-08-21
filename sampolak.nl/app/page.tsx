@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "./lib/supabase"; // Make sure this path matches your setup
-import { ExternalLink, GitGraph } from "lucide-react"; // Make sure to npm install lucide-react if you haven't
+import { supabase } from "./lib/supabase"; 
+import { ExternalLink, GitGraph } from "lucide-react"; 
+import { ScrollReveal } from "./components/ScrollReveal";
 
 // export const revalidate = 3600; // Optional: revalidate cache every hour
 
@@ -20,13 +21,13 @@ export default async function Home() {
     <main className="bg-black text-white selection:bg-white selection:text-black overflow-hidden">
 
       {/* --- HERO SECTION --- */}
-      {/* We wrapped your hero in a section with h-screen and overflow-hidden */}
       <section className="relative h-screen w-full">
         {/* Background Image */}
         <Image
           src="/sam-sunset-rocky-landscape.jpg"
           alt="Sam Polak standing on rocks during sunset"
           fill
+          sizes="100vw"
           className="object-cover sm:object-center object-[64%] opacity-80 -translate-y-10"
           priority
         />
@@ -36,6 +37,7 @@ export default async function Home() {
           src="/sam-sunset-rocky-landscape.jpg"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover sm:object-center object-[64%] opacity-50 origin-bottom -scale-y-100 blur-xs [mask-image:linear-gradient(to_bottom,transparent_50%,black)] -translate-y-10 pointer-events-none"
           priority
         />
@@ -46,6 +48,7 @@ export default async function Home() {
             src="/dots.webp"
             alt="Halftone Dots"
             fill
+            sizes="(max-width: 1024px) 50vw, 33vw"
             className="object-contain"
             priority
           />
@@ -57,13 +60,14 @@ export default async function Home() {
             src="/dots.webp"
             alt="Halftone Dots"
             fill
+            sizes="(max-width: 1024px) 50vw, 33vw"
             className="object-contain"
             priority
           />
         </div>
 
         {/* Foreground Content */}
-        <div className="relative z-10 flex flex-col justify-between h-full w-full p-6 lg:p-12">
+        <div className="relative z-10 flex flex-col justify-between h-full w-full p-6 lg:p-12 min-h-120">
 
           {/* Desktop Header */}
           <header className="hidden lg:flex w-full px-14 justify-between items-start tracking-wide text-sm font-medium font-geist">
@@ -138,7 +142,8 @@ export default async function Home() {
         <h2 className="font-unbounded text-3xl md:text-5xl font-bold mb-16">SELECTED WORKS</h2>
 
         <div className="grid gap-12 md:gap-24">
-          {projects?.map((project) => (
+          {projects?.map((project, index) => (
+            <ScrollReveal key={project.id} delay={index * 0.15}>
             <article
               key={project.id}
               className="group flex flex-col gap-4 border-b border-white/20 pb-12"
@@ -178,9 +183,11 @@ export default async function Home() {
                   >
                     {tech}
                   </span>
+                 
                 ))}
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
