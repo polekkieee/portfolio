@@ -3,6 +3,7 @@ import Link from "next/link";
 import { supabase } from "./lib/supabase"; 
 import { ExternalLink, GitGraph } from "lucide-react"; 
 import { ScrollReveal } from "./components/ScrollReveal";
+import TechText from "./components/TechText";
 
 // export const revalidate = 3600; // Optional: revalidate cache every hour
 
@@ -124,8 +125,25 @@ export default async function Home() {
               <p className="font-unbounded tracking-[0.2em] text-xl font-bold uppercase">PORTFOLIO</p>
             </div>
             <div className="w-full flex flex-col sm:flex-row items-center justify-end md:pr-4 lg:pr-5 xl:pr-13 gap-2 sm:gap-6 lg:gap-8 mb-16 sm:mb-24 lg:mb-24 xl:mb-12 ">
-              <h1 className="font-unbounded text-[5.5rem] sm:text-[6.5rem] lg:text-[9rem] xl:text-[12rem] leading-none font-black tracking-tighter">
-                SAM
+              <h1 className="font-unbounded w-full max-w-[300px] h-[135px] sm:max-w-[300px] sm:h-[155px] md:max-w-[350px] md:h-[175px] lg:max-w-[440px] lg:h-[225px] xl:max-w-[580px] xl:h-[280px]">
+                <TechText
+                  text="SAM"
+                  fontWeight={900}
+                  fontSize={192}
+                  reveal="letter"
+                  dashLength={6}
+                  dashGap={4}
+                  specks={4}
+                  intro="metrics"
+                  introDuration={2.4}
+                  clickKick={false}
+                  guides={false}
+                  letterSpacing={-0.04}
+                  speed={2}
+                  bounce={0.15}
+                  sweep={false}
+                  draggable={false}
+                />
               </h1>
               <div className="flex items-center justify-center px-12 py-3 sm:px-14 sm:py-5 lg:px-25 lg:py-6 xl:px-32 xl:py-12 border-[2px] lg:border-[3px] border-white sm:self-end sm:mb-4 lg:mb-8" style={{ borderRadius: '50%' }}>
                 <span className="font-liter text-[3rem] sm:text-[4rem] lg:text-[6rem] xl:text-[8rem] leading-none lowercase mt-[-0.1em]">
