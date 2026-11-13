@@ -292,7 +292,21 @@ export default function DecryptedText({
 
     const mask = maskRef.current;
     const order = forward ? revealOrder() : revealOrder().reverse();
-    const queue = sequential ? order.filter(index => mask[index] !== forward) : [];
+    const remaining = order.filter(index => mask[index] !== forward);
+    const queue: (number | null)[] = [];
+
+    if (sequential) {
+      if (maxIterations > 1) {
+        remaining.forEach(index => {
+          for (let k = 0; k < maxIterations - 1; k++) {
+            queue.push(null);
+          }
+          queue.push(index);
+        });
+      } else {
+        remaining.forEach(index => queue.push(index));
+      }
+    }
 
     runRef.current = {
       forward,

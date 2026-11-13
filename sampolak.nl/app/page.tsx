@@ -153,8 +153,8 @@ export default async function Home() {
                   effect="fade"
                   sequential={true}
                   revealDirection="start"
-                  speed={65}
-                  maxIterations={10}
+                  speed={40}
+                  maxIterations={12}
                   hoverRadius={0}
                   scrambleColor="#2bb673"
                   loop={false}
