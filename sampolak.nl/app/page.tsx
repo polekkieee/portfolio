@@ -4,6 +4,7 @@ import { supabase } from "./lib/supabase";
 import { ExternalLink, GitGraph } from "lucide-react"; 
 import { ScrollReveal } from "./components/ScrollReveal";
 import TechText from "./components/TechText";
+import DecryptedText from "./components/DecryptedText";
 
 // export const revalidate = 3600; // Optional: revalidate cache every hour
 
@@ -146,9 +147,24 @@ export default async function Home() {
                 />
               </h1>
               <div className="flex items-center justify-center px-12 py-3 sm:px-14 sm:py-5 lg:px-25 lg:py-6 xl:px-32 xl:py-12 border-[2px] lg:border-[3px] border-white sm:self-end sm:mb-4 lg:mb-8" style={{ borderRadius: '50%' }}>
-                <span className="font-liter text-[3rem] sm:text-[4rem] lg:text-[6rem] xl:text-[8rem] leading-none lowercase mt-[-0.1em]">
-                  polak
-                </span>
+                <DecryptedText
+                  text="polak"
+                  animateOn="view"
+                  effect="fade"
+                  sequential={true}
+                  revealDirection="start"
+                  speed={65}
+                  maxIterations={10}
+                  hoverRadius={0}
+                  scrambleColor="#2bb673"
+                  loop={false}
+                  loopDelay={1800}
+                  useOriginalCharsOnly={false}
+                  characters="!<>-_/[]{}=+*^?#"
+                  className="revealed"
+                  encryptedClassName="encrypted"
+                  parentClassName="font-liter text-[3rem] sm:text-[4rem] lg:text-[6rem] xl:text-[8rem] leading-none lowercase mt-[-0.1em]"
+                />
               </div>
             </div>
           </footer>
